@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nageeye Suuq | Electronics</title>
+  <meta name="description" content="Nageeye Suuq - Electronics | Dalab online, WhatsApp & offline." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#0d6efd; /* Primary blue */
+      --blue-dark:#0b5ed7;
+      --black:#0b0f14; /* Deep black */
+      --gray:#1b2430;  /* Card bg */
+      --text:#e6f0ff;  /* Light text */
+      --muted:#9fb3c8; /* Muted text */
+      --accent:#22d3ee; /* Cyan accent for hovers */
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--black),#0a0f16 30%, #0a0d12);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin-inline:auto;padding:20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,15,20,.65);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#1e40af);display:grid;place-content:center;box-shadow:var(--shadow)}
+    .logo span{font-weight:800}
+    .brand h1{font-size:18px;margin:0;font-weight:800;letter-spacing:.3px}
+    .nav a{padding:10px 14px;border-radius:12px;color:var(--muted)}
+    .nav a:hover{color:var(--text);background:rgba(13,110,253,.12);}
+    .cta{background:var(--blue);color:white;border-radius:12px;padding:10px 14px;font-weight:700;box-shadow:0 8px 20px rgba(13,110,253,.35)}
+    .cta:hover{background:var(--blue-dark)}
+
+    /* Hero */
+    .hero{padding:60px 0 30px;display:grid;gap:24px;align-items:center}
+    .hero h2{font-size:38px;margin:0 0 10px;line-height:1.1}
+    .hero p{margin:0;color:var(--muted);font-size:16px}
+    .hero-card{background:linear-gradient(180deg, rgba(13,110,253,.12), rgba(13,110,253,.04));border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:22px;box-shadow:var(--shadow)}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(13,110,253,.18);color:#d9e8ff;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.08)}
+
+    /* Sections */
+    section{padding:30px 0}
+    h3.section-title{font-size:22px;margin:0 0 14px}
+    .grid{display:grid;gap:16px}
+    @media (min-width: 768px){
+      .hero{grid-template-columns:1.2fr .8fr}
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+      .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* Cards */
+    .card{background:linear-gradient(180deg,#0e151d,#0b1016);border:1px solid rgba(255,255,255,.06);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+    .card .content{padding:16px}
+    .card h4{margin:0 0 6px}
+    .price{font-weight:800}
+    .muted{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.1);cursor:pointer}
+    .btn.primary{background:var(--blue);border-color:var(--blue);color:white;font-weight:700}
+    .btn.primary:hover{background:var(--blue-dark)}
+    .btn.ghost:hover{border-color:#2b3645}
+
+    /* Contact / Form */
+    form{display:grid;gap:12px}
+    input, textarea, select{width:100%;padding:12px 14px;border-radius:12px;background:#0b121a;border:1px solid #1c2633;color:var(--text)}
+    label{font-size:14px;color:var(--muted)}
+    .row{display:grid;gap:12px}
+    @media(min-width:768px){.row{grid-template-columns:1fr 1fr}}
+    .notice{font-size:12px;color:var(--muted)}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:30px 0;color:var(--muted)}
+
+    /* Floating WhatsApp */
+    .wa-float{position:fixed;right:16px;bottom:16px;background:#25d366;border-radius:999px;padding:14px 16px;color:#051b0d;font-weight:800;box-shadow:var(--shadow)}
+    .wa-float:hover{filter:brightness(1.05)}
+
+    /* Utility */
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#0c1622;border:1px solid rgba(255,255,255,.06);color:#b8d0ea;font-size:12px}
+    .stack{display:flex;flex-wrap:wrap;gap:8px}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"><span>NS</span></div>
+        <h1>Nageeye Suuq</h1>
+      </div>
+      <nav class="stack">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#order">Order</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container" id="home">
+    <div class="hero-card">
+      <span class="badge">Electronics • Blue & Black</span>
+      <h2>Electronics tayo leh – Dalbo <span style="color:var(--accent)">online</span>, <span style="color:#25d366">WhatsApp</span> ama <span style="color:#9ca3af">offline</span>.</h2>
+      <p>Ku soo dhowow <strong>Nageeye Suuq</strong>. Waxaan keennaa qalab electronic oo casri ah: mobilo, accessories, audio & smart devices.
+      </p>
+      <div class="stack" style="margin-top:14px">
+        <a class="btn primary" href="#products">Daawo Alaabada</a>
+        <a class="btn ghost" href="#order">Dalbo Hadda</a>
+      </div>
+      <div style="margin-top:12px" class="notice">* Fadlan cusbooneysii lambarka WhatsApp gudaha koodka (hoos bogga) haddii uu ka duwan yahay.</div>
+    </div>
+    <div>
+      <div class="card">
+        <img alt="Electronics collage" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" />
+        <div class="content">
+          <h4>Qalab Cusub ayaa yimid</h4>
+          <p class="muted">Smartphones • Earbuds • Power Banks • Speakers</p>
+          <div class="stack">
+            <span class="chip">Warranty</span>
+            <span class="chip">Delivery</span>
+            <span class="chip">Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="container">
+      <h3 class="section-title">Alaabooyinka</h3>
+      <div class="grid cols-3">
+        <!-- Product 1 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop" alt="Smartphone" />
+          <div class="content">
+            <h4>Smartphone 4G</h4>
+            <p class="muted">128GB • Dual SIM • 1 sano warranty</p>
+            <div class="stack" style="justify-content:space-between;align-items:center">
+              <span class="price">$199</span>
+              <button class="btn primary" onclick="quickOrder('Smartphone 4G',199)">Dalbo</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1518443751683-5082292f6b11?q=80&w=1200&auto=format&fit=crop" alt="Wireless earbuds" />
+          <div class="content">
+            <h4>Wireless Earbuds</h4>
+            <p class="muted">Noise cancel • 24h battery</p>
+            <div class="stack" style="justify-content:space-between;align-items:center">
+              <span class="price">$29</span>
+              <button class="btn primary" onclick="quickOrder('Wireless Earbuds',29)">Dalbo</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1585386959984-a41552231658?q=80&w=1200&auto=format&fit=crop" alt="Power Bank" />
+          <div class="content">
+            <h4>Power Bank 20,000mAh</h4>
+            <p class="muted">Fast charge • 2 USB</p>
+            <div class="stack" style="justify-content:space-between;align-items:center">
+              <span class="price">$22</span>
+              <button class="btn primary" onclick="quickOrder('Power Bank 20000mAh',22)">Dalbo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="notice" style="margin-top:10px">* Qiimayaashu waa tusaale. Wax ka beddel iyadoo loo eegayo stock-ka.</div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container grid cols-2">
+      <div class="card">
+        <div class="content">
+          <h3>Ku saabsan Nageeye Suuq</h3>
+          <p class="muted">Waxaan diiradda saarnaa iibinta qalabka electronic ee la isku halayn karo. Adeeg degdeg ah, qiimo jaban, iyo dammaanad.</p>
+          <div class="stack" style="margin-top:10px">
+            <span class="chip">Electronics</span>
+            <span class="chip">Accessories</span>
+            <span class="chip">Smart Devices</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <h3>Saacadaha & Adeegga</h3>
+          <ul>
+            <li>Isniin – Sabti: 8:00 – 8:00 Habeenimo</li>
+            <li>Axad: Xiran / ama wac ka hor</li>
+            <li>Delivery: Gudaha magaalada & waddanka</li>
+          </ul>
+          <p class="notice">* Xogtan waxaad ka beddeli kartaa si ay ugu dhigmaan saacadahaaga dhabta ah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Form -->
+  <section id="order">
+    <div class="container">
+      <h3 class="section-title">Dalbo Online</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <div class="content">
+            <form id="orderForm" onsubmit="return sendOrder(event)">
+              <div class="row">
+                <div>
+                  <label>Magaca *</label>
+                  <input required name="name" placeholder="Magacaaga" />
+                </div>
+                <div>
+                  <label>Telefoon *</label>
+                  <input required name="phone" placeholder="65xxxxxxx" />
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <label>Alaabta *</label>
+                  <input required name="product" placeholder="Tusaale: Smartphone 4G" />
+                </div>
+                <div>
+                  <label>Tirada</label>
+                  <input name="qty" type="number" value="1" min="1" />
+                </div>
+              </div>
+              <label>Faahfaahin</label>
+              <textarea name="notes" rows="3" placeholder="Midab, qaab, goobta delivery, iwm..."></textarea>
+              <div class="stack" style="margin-top:6px">
+                <button type="submit" class="btn primary">Dir dalabka (WhatsApp)</button>
+                <button type="button" class="btn ghost" onclick="sendEmail()">Dir email</button>
+              </div>
+              <p class="notice">Ama ka wac qeybta hoose (offline) si toos ah.</p>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="content">
+            <h4>Sidee ayay u shaqaysaa?</h4>
+            <ol>
+              <li>Buuxi foomka dalabka.</li>
+              <li>Guji “Dir dalabka (WhatsApp)” – fariin si toos ah ayaa kuu furmi doonta.</li>
+              <li>Waxaan ku xaqiijin doonnaa qiimaha & waqtiga keenista.</li>
+            </ol>
+            <p class="notice">Foomkan waxa uu adeegsadaa WhatsApp API iyo Email (mailto) — wax server ah looma baahna.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container grid cols-2">
+      <div class="card">
+        <div class="content">
+          <h3>Xiriir</h3>
+          <p><strong>WhatsApp:</strong> <a id="wa-display" href="#">+252XXXXXXXXX</a></p>
+          <p><strong>Email:</strong> <a id="email-link" href="#">nageeyesuuq@gmail</a></p>
+          <p><strong>Goobta:</strong> Magaaladaada — Somalia</p>
+          <div class="stack" style="margin-top:10px">
+            <a class="btn primary" id="wa-button" href="#">Fariin WhatsApp</a>
+            <a class="btn ghost" id="mail-button" href="#">Email</a>
+          </div>
+          <p class="notice">Ku beddel lambarka saxda ah gudaha <code>CONFIG_WHATSAPP</code> hoos.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <h3>La soco Cusbooneysiinta</h3>
+          <p class="muted">Raac baraha bulshada (links geli haddii diyaar yihiin).</p>
+          <div class="stack">
+            <span class="chip">Facebook</span>
+            <span class="chip">TikTok</span>
+            <span class="chip">Instagram</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Nageeye Suuq — Electronics. Dhammaan xuquuqdu way dhawrsan tahay.
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Shortcut -->
+  <a id="wa-float" class="wa-float" href="#">WhatsApp</a>
+
+  <script>
+    // ================== CONFIG ==================
+    // FADLAN KU BEDDEL lambarka WhatsApp saxda ah (tusaale: 252659422222)
+    const CONFIG_WHATSAPP = '252XXXXXXXXX';
+    // FADLAN KU BEDDEL email saxda ah haddii loo baahdo
+    const CONFIG_EMAIL = 'nageeyesuuq@gmail'; // user provided like this; add .com if needed
+    // ============================================
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function buildWaLink(text){
+      const base = `https://wa.me/${CONFIG_WHATSAPP}`;
+      const msg = encodeURIComponent(text);
+      return `${base}?text=${msg}`;
+    }
+
+    function quickOrder(product, price){
+      const text = `Dalab Degdeg ah\nAlaab: ${product}\nQiime: $${price}\nFadlan ii xaqiiji.\n— From Nageeye Suuq website`;
+      window.open(buildWaLink(text),'_blank');
+    }
+
+    function sendOrder(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const name = fd.get('name');
+      const phone = fd.get('phone');
+      const product = fd.get('product');
+      const qty = fd.get('qty') || 1;
+      const notes = fd.get('notes') || '';
+      const text = `Dalab Cusub\nMagac: ${name}\nTelefoon: ${phone}\nAlaab: ${product}\nTiro: ${qty}\nFaahfaahin: ${notes}`;
+      window.open(buildWaLink(text),'_blank');
+      return false;
+    }
+
+    function sendEmail(){
+      const subject = encodeURIComponent('Dalab cusub - Nageeye Suuq');
+      const body = encodeURIComponent('Fadlan ku qor dalabkaaga halkan.');
+      window.location.href = `mailto:${CONFIG_EMAIL}?subject=${subject}&body=${body}`;
+    }
+
+    // Wire contact buttons & display
+    const waDisplay = document.getElementById('wa-display');
+    const waButton = document.getElementById('wa-button');
+    const waFloat = document.getElementById('wa-float');
+    const mailLink = document.getElementById('email-link');
+    const mailButton = document.getElementById('mail-button');
+
+    function refreshContacts(){
+      waDisplay.textContent = `+${CONFIG_WHATSAPP}`;
+      const defaultMsg = encodeURIComponent('Salaan, waxaan rabaa inaan dalbado.');
+      const waHref = `https://wa.me/${CONFIG_WHATSAPP}?text=${defaultMsg}`;
+      waDisplay.href = waHref;
+      waButton.href = waHref;
+      waFloat.href = waHref;
+      mailLink.textContent = CONFIG_EMAIL;
+      mailLink.href = `mailto:${CONFIG_EMAIL}`;
+      mailButton.href = `mailto:${CONFIG_EMAIL}`;
+    }
+
+    refreshContacts();
+  </script>
+</body>
+</html>
